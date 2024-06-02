@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from .forms import JobForm
 from .models import Job
 
@@ -21,6 +21,6 @@ def index(request):
                 occupation=occupation
             )
             job.save()
-
+            return redirect(reverse('index'))
         
     return render(request, 'index.html')
