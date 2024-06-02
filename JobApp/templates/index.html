@@ -1,11 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Job Application App</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Job Application Form {% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>Job Application Form</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label">First Name:</label>
+                            <input class="form-control" type="text" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Last Name:</label>
+                            <input class="form-control" type="text" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input class="form-control" type="email" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Available Start Date:</label>
+                            <input class="form-control" type="date" id="date" name="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Current Occupation:</label>
+                            <div id="occupation" class="form-check">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="employed" type="radio" id="employed" name="occupation" required>
+                                    <label class="form-check-label" for="employed">Employed</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" value="unemployed" type="radio" id="unemployed" name="occupation" required>
+                                    <label class="form-check-label" for="unemployed">Unemployed</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" value="self-employed" type="radio" id="self-employed" name="occupation" required>
+                                    <label class="form-check-label" for="self-employed">Self-Employed</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" value="student" type="radio" id="student" name="occupation" required>
+                                    <label class="form-check-label" for="student">Student</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-secondary px-5 py-3">Submit</button>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
