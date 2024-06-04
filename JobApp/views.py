@@ -23,18 +23,25 @@ def index(request):
                 occupation=occupation
             )
 
-            msg_body = f"Thank you for expressing interest in the position, {first_name}. We appreciate your application and will review it carefully. Expect to hear from us soon regarding the next steps in the hiring process. Here is your data: \n\nFirst Name: {first_name}\nLast Name: {last_name}\nEmail: {email}\nOccupation: {occupation}\nDate: {date}. \nThank you!"
+            # Todo: send email
+            msg_body = (f"Thank you for expressing interest in the position, {first_name}. We appreciate your "
+                        f"application and will review it carefully. Expect to hear from us soon regarding the next "
+                        f"steps in the hiring process. Here is your data: \n\nFirst Name: {first_name}\nLast Name: "
+                        f"{last_name}\nEmail: {email}\nOccupation: {occupation}\nDate: {date}. \nThank you!")
 
-            # email = EmailMessage(
-            #     'Job Application',
-            #     reply_to=[email], 
-            #     body=msg_body
-            # )
+            email_send = EmailMessage(
+                'Job Application for the Position',
+                body=msg_body,
+                to=[email]
+            )
 
-            # email.send()
+            email_send.send()
 
-            messages.success(request, 'Your application has been submitted successfully!')
+            messages.success(request,
+                             'Your application has been submitted successfully!')
 
             return redirect(reverse('index'))
         
     return render(request, 'index.html')
+
+# https://gale.udemy.com/course/the-python-mega-course/learn/lecture/36906752#overview
